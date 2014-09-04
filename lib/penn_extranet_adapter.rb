@@ -87,7 +87,7 @@ class PennExtranetAdapter
     end
     btn = agent.page.forms.first.submit_button?('btnContinue') #finds the continue button
     agent.page.forms.first.submit(btn) # submits it to confirm login
-    # save_agent
+    save_agent if Rails.env.development?
     return agent
   end
   

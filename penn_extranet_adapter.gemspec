@@ -9,4 +9,5 @@ Gem::Specification.new do |s|
   s.homepage    =
     'http://rethinkhealth.blogspot.com/'
   s.license       = 'MIT'
+  s.add_runtime_dependency "mechanize", ">= 2.7.2"
 end

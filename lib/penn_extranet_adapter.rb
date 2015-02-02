@@ -92,7 +92,7 @@ class PennExtranetAdapter
   end
   
   def new_secure_agent
-    Mechanize.new{|a| a.ssl_version, a.verify_mode = 'SSLv3', OpenSSL::SSL::VERIFY_NONE}
+    Mechanize.new{|a| a.ssl_version, a.verify_mode = 'TLSv1', OpenSSL::SSL::VERIFY_NONE}
   end
   
   def save_agent

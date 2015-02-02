@@ -40,14 +40,14 @@ class PennExtranetAdapter
   def authenticated_agent 
     #returns an agent that is authenticated or a new agent if you are on the VPN
 
-    # step 1: try to load a saved agent to avoid having to re-auth
-    if @authenticated_agent == nil and Rails.env.development? # 
-      load_agent
-      
-      # check to see if agent is valid, otherwise clear it 
-      @authenticated_agent = nil unless valid_agent?( @authenticated_agent )
-    end
-    
+    # # step 1: try to load a saved agent to avoid having to re-auth
+    # if @authenticated_agent == nil and Rails.env.development? # 
+    #   load_agent
+    #   
+    #   # check to see if agent is valid, otherwise clear it 
+    #   @authenticated_agent = nil unless valid_agent?( @authenticated_agent )
+    # end
+    # 
     # Step 2: if loading failed then will authenticate a new session
     @authenticated_agent ||= authenticate
   end
@@ -87,7 +87,7 @@ class PennExtranetAdapter
     end
     btn = agent.page.forms.first.submit_button?('btnContinue') #finds the continue button
     agent.page.forms.first.submit(btn) # submits it to confirm login
-    save_agent if Rails.env.development?
+    # save_agent if Rails.env.development?
     return agent
   end
   
